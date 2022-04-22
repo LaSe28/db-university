@@ -89,20 +89,20 @@ GROUP BY
 
 1. Contare quanti iscritti ci sono stati ogni anno
 
-        SELECT year(students.enrolment_date), COUNT(*) FROM students
+        SELECT year(students.enrolment_date) as enrolment_year, COUNT(*) as enrolments_for_year FROM students
         GROUP BY YEAR(students.enrolment_date);
 
 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
-        SELECT teachers.office_address, COUNT(*) FROM teachers
+        SELECT teachers.office_address, COUNT(*) as teachers_offices FROM teachers
         GROUP BY teachers.office_address;
 
 3. Calcolare la media dei voti di ogni appello d'esame
 
-        SELECT ROUND(AVG(exam_student.vote)) FROM `exam_student`
+        SELECT ROUND(AVG(exam_student.vote)) as average_votes FROM `exam_student`
         GROUP BY exam_id;
 
 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
 
-        SELECT COUNT(department_id) FROM degrees
+        SELECT COUNT(department_id) as courses_in_dep  FROM degrees
         GROUP BY department_id;
